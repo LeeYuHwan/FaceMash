@@ -17,9 +17,9 @@ connection.connect();
 router.post('/ajax_send_rank', function(req, res){
     var body = req.body;
     var url = body.url;
-    var rank = body.rank;
 
-    var query = connection.query('UPDATE rank_table SET rank = rank + "' + rank + '" WHERE url = "' + url + '"', function(err, rows){
+    var sql = { url : url};
+    var query = connection.query('UPDATE rank_table SET rank = rank + 1 WHERE ?', sql, function(err, rows){
         if(err) throw err;
     });
 });

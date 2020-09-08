@@ -40,7 +40,7 @@ function setFace(imgUrl){
 function selectFace(face_id){	
     var insert_link = 'http://localhost:3000/ajax_send_rank';
     var xhr = new XMLHttpRequest();
-    var data = {'rank' : 1, 'url' : insertImgUrl[face_id - 1]};
+    var data = {'url' : insertImgUrl[face_id - 1]};
     data = JSON.stringify(data);
       
     xhr.open('POST', insert_link);
