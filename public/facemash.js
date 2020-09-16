@@ -37,9 +37,10 @@ function setFace(imgUrl){
     insertImgUrl[1] = imgUrl[ran2].url;
 }
 
+var xhr = new XMLHttpRequest();
+
 function selectFace(face_id){	
-    var insert_link = 'http://localhost:3000/ajax_send_rank';
-    var xhr = new XMLHttpRequest();
+    var insert_link = 'http://localhost:3000/ajax_send_rank';    
     var data = {'url' : insertImgUrl[face_id - 1]};
     data = JSON.stringify(data);
       
@@ -56,7 +57,6 @@ function setResult(){
     var data = {'call' : 0};
     data = JSON.stringify(data);
 
-    var xhr = new XMLHttpRequest();
     xhr.open('POST', result_link);
     xhr.setRequestHeader('Content-Type', "application/json");
     xhr.send(data);
